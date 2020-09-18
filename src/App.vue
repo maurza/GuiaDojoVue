@@ -2,8 +2,8 @@
    <v-app>
     <Toolbar />
     <v-main>
-      <Search />
-      <ImageList/>
+       <Search v-on:searchResult="searchResult" />
+       <ImageList v-bind:items="items"/>
     </v-main>
   </v-app>
 </template>
@@ -22,9 +22,13 @@ export default {
     Search,
     ImageList
   },
-
+  methods:{
+    searchResult(response){
+      this.items=response;
+    }
+  },
   data: () => ({
-    //
+    items: [],
   }),
 };
 </script>

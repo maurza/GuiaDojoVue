@@ -29,6 +29,7 @@ export default {
         .get("https://pixabay.com/api/?key=18325849-94cafec8b0f30985ae8cfbdde&q="+this.word+"&image_type=photo")
         .then((response) => {
          this.search = response.data;
+         this.$emit("searchResult", response.data);
         }).catch(err=>{
             console.log(err)})
     },
